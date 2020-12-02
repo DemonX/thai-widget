@@ -24,6 +24,14 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.android.library'
 apply plugin: 'org.stoyicker.android-check'
 
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+
 group = rootProject.group
 version = rootProject.version
 
