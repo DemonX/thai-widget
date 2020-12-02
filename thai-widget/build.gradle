@@ -16,11 +16,7 @@
  *
  */
 
-plugins {
-    id "com.github.dcendents.android-maven" version "1.5"
-}
 
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.android.library'
 apply plugin: 'org.stoyicker.android-check'
 
@@ -91,5 +87,3 @@ check {
     }
 }
 
-apply from: 'maven.gradle'
-apply from: 'bintray.gradle'
