@@ -18,7 +18,7 @@
 
 
 apply plugin: 'com.android.library'
-apply plugin: 'org.stoyicker.android-check'
+//apply plugin: 'org.stoyicker.android-check'
 
 repositories {
     mavenCentral()
@@ -32,12 +32,12 @@ group = 'com.github.DemonX'
 version = '0.6.6'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 25
     }
 
     compileOptions {
@@ -79,11 +79,11 @@ dependencies {
     testCompile 'org.robolectric:robolectric:' + robolectricVersion
 }
 
-check {
-    abortOnError true
-
-    pmd {
-        skip true
-    }
-}
+//check {
+////    abortOnError true
+//
+//    pmd {
+//        skip true
+//    }
+//}
 
