@@ -22,27 +22,26 @@ apply plugin: 'org.stoyicker.android-check'
 
 repositories {
     mavenCentral()
-    google()
     jcenter()
     maven { url "https://jitpack.io" }
 }
 
 
-group = rootProject.group
-version = rootProject.version
+group = 'com.github.DemonX'
+version = '0.6.6'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 16
+        targetSdkVersion 28
     }
 
     compileOptions {
-        sourceCompatibility javaVersion
-        targetCompatibility javaVersion
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     buildTypes {
