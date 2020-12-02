@@ -21,6 +21,7 @@ package nectec.thai.widget.date;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 
@@ -91,6 +92,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         monthPicker.setMinValue(0);
         monthPicker.setMaxValue(11);
         monthPicker.setDisplayedValues(THAI_MONTH);
+//        monthPicker.setWrapSelectorWheel(false);
 
         yearPicker = (NumberPicker) view.findViewById(R.id.year);
         yearPicker.setOnValueChangedListener(this);
@@ -198,6 +200,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     @Override
     public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+
         updateValueAndUi();
     }
 
@@ -263,20 +266,25 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dayPicker.setOnValueChangedListener(null);
 
             int minMonth = minDate.get(MONTH);
-            monthPicker.setMinValue(minMonth);
-            String[] monthDisplay = new String[12 - minMonth];
-            System.arraycopy(THAI_MONTH, minMonth, monthDisplay, 0, monthDisplay.length);
-            monthPicker.setDisplayedValues(monthDisplay);
-
+//            monthPicker.setMinValue(minMonth);
+//            String[] monthDisplay = new String[12 - minMonth];
+//            System.arraycopy(THAI_MONTH, minMonth, monthDisplay, 0, monthDisplay.length);
+//            monthPicker.setDisplayedValues(monthDisplay);
+            monthPicker.setDisplayedValues(THAI_MONTH);
             if (monthPicker.getValue() == minMonth) {
                 int minDayOfMonth = minDate.get(DAY_OF_MONTH);
                 dayPicker.setMinValue(minDayOfMonth);
             } else {
                 dayPicker.setMinValue(1);
             }
-
+            // updateDate(newCalendar);
             newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), dayPicker.getValue());
-            updateDate(newCalendar);
+            if(newCalendar.compareTo(this.minDate)  < 0) {
+                updateDate(this.minDate);
+            }
+            else {
+                updateDate(newCalendar);
+            }
 
             monthPicker.setOnValueChangedListener(this);
             dayPicker.setOnValueChangedListener(this);
